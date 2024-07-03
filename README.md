@@ -55,6 +55,8 @@ The first command imports that image we downloaded earlier, if your disk storage
 
 This file performs two purposes, the first rather obvious (installing qemu-guest-agent) the second not so much. For some reason CloudInit starts *after* networking and thus you can't SSH or even ping the VM by the name you give it. This package is only run once so after this reboot you'll be able to use the VM.
 
+Note: You may be required to create the `/var/lib/vz/snippets` directory if you encounter this error: "tee: /var/lib/vz/snippets/vendor.yaml: No such file or directory". Create the folder with this command: `mkdir /var/lib/vz/snippets`.
+
 ## Configuring CloudInit
 
     sudo qm set 8001 --cicustom "vendor=local:snippets/vendor.yaml"
